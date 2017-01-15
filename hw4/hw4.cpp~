@@ -1,0 +1,40 @@
+/*
+  Programmer: Innocent Niyibizi
+  File: hw4.cpp
+  Date: 9/17/16
+  Class: 1570 - H
+  Instuctor: Jarus
+  Description: Create program to simulate a vending machine
+*/
+
+#include <iostream>
+using namespace std;
+
+//Creating constants for the price of each root
+const double GINKO_PRICE = 4.50;
+const double MANDRAKE_PRICE = 1.23;
+const double GINSENG_PRICE = 2.39;
+const double SQUARE_PRICE = 99.98;
+const double VITAMIN_PRICE = 0.78;
+const double TAX = 0.16;
+
+int main()
+{
+  //Declaring variables
+  string user_name = " ";
+  double total_price = 0.0;
+  double amnt_paid = 0.0;
+  
+  cout.setf(ios::fixed);
+  cout.setf(ios::showpoint);
+  cout.percision(2);
+  
+  cout<<"Hello, Welcome to Roots 'n Stuff!"<<endl;
+  do
+  {
+    cout<<"Please enter your name: ";
+    cin>>user_name;
+  }while(user_name == " ");
+  
+  return 0;
+}

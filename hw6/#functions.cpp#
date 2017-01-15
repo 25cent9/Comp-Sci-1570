@@ -1,0 +1,26 @@
+/*
+  Programmer: Innocent Niyibizi
+  File: functions.cpp
+  Date: 10/8/16
+  Class: 1570 - H
+  Instuctor: Jarus
+  Description: cpp file for each function in program
+*/
+
+#include "functions.h"
+#include "constants.h"
+
+void greeting()
+{
+  cout<<"Hello! Welcome to Roots 'n Stuff!"<<endl;
+  return;
+}
+
+void printMenu(int inventory[])
+{
+ 
+  
+  cout<<"Roots 'n Stuff \n";
+  cout<<(inventory[0]>0?Ite)
+  return;
+}

@@ -1,0 +1,31 @@
+Innocent Niyibizi, Section h
+
+
+1. Solution:
+  a.) Check to see if current student has their own ID
+  b.) If current student has their own ID then proceed to step 
+  c.) If current student does not have their own ID then current student
+  must talk to the next student
+  d.) The two students compare the IDs that they have
+  e.) If one student finds their ID when comparing with the other student
+  then both students swap IDs
+  f.) Once student has their own ID, student leaves the party
+  g.) Repeat steps a-f until no students are left at party
+2. Solution:
+  a.) Gather number from the user
+  b.) If any digit is A or B then switch them to 11 and 12, respectively 
+  c.) Take each digit in the number and split them up based on their positon
+  d.) For each postion, from 0-12, find the product of the current digit and
+  12 to the current base
+  e.) Once all of the products for each digit is found, add all of the
+  numbers together to get the base 10 representation of the base 12 number
+3. Solution:
+  a.) Read in the first word and store it
+  b.) Read in the second word and store it
+  c.) Compare the first character of both words, if they're both the same
+  then continue on to the next character
+  d.) Repeat step c until a match is not found
+  e.) If current characters don't match then find the numeric values of both
+  characters and subtract them
+  f.) Once the value is found, take the absolute value of that number and
+  that will be the lexographic difference

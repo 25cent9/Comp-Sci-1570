@@ -1,0 +1,56 @@
+Script started on Thu 13 Oct 2016 11:59:05 PM CDT
+g++ -Wall -W -s -pedantic-errors *.cpp -o 53drv && ./53drv && rm ./53drv
+Hello! Welcome to Roots 'n Stuff!
+Please enter your name: Iin  nnocent
+Roots 'n Stuff 
+1. Ginko Root ($4.50)
+2. Mandrake Root ($1.23)
+3. Ginseng Root ($2.39)
+4. Square Root ($99.98)
+5. Vitamin R Root ($0.78)
+6. Quit
+Innocent, please enter your selection: 1
+As my uncle Hal would say, "I can't do that for you, Dave. You want " Mandrake Root
+Enter the amount you would like: 4
+Naw naw naw, you need 8
+Roots 'n Stuff 
+1. Ginko Root ($4.50)
+2. Mandrake Root ($1.23)
+3. Ginseng Root ($2.39)
+4. Square Root ($99.98)
+5. Vitamin R Root ($0.78)
+6. Quit
+Innocent, please enter your selection: 2
+Only a loooooser would want THAT. Try this instead: Ginseng Root
+Enter the amount you would like: 4
+Naw naw naw, you need 6
+Roots 'n Stuff 
+1. Ginko Root ($4.50)
+2. Mandrake Root ($1.23)
+3. Ginseng Root ($2.39)
+4. Square Root ($99.98)
+5. Vitamin R Root ($0.78)
+6. Quit
+Innocent, please enter your selection: 3
+WRONG! I'm sure you meant to pick Square Root
+Enter the amount you would like: 4
+That's waayyy too much for you. You want 1
+Roots 'n Stuff 
+1. Ginko Root ($4.50)
+2. Mandrake Root ($1.23)
+3. Ginseng Root ($2.39)
+4. Square Root ($99.98)
+5. Vitamin R Root ($0.78)
+6. Quit
+Innocent, please enter your selection: 4
+That selection is not avaliable. Try again!
+Roots 'n Stuff 
+1. Ginko Root ($4.50)
+2. Mandrake Root ($1.23)
+3. Ginseng Root ($2.39)
+4. Square Root ($99.98)
+5. Vitamin R Root ($0.78)
+6. Quit
+Innocent, please enter your selection: 4
+Subtotal: 6.76
+Please enter the amount you wish to pay with: $^[[A^[[A^[[B\             

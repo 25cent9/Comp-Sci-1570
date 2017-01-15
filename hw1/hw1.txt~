@@ -1,0 +1,12 @@
+Innocent Niyibizi, Section H
+
+Solution 1.)
+  a.)Check if current student has their own ID
+  b.)If current student has their own ID, then continue to step f
+  c.)If current student does not have their own ID, then current student must talk
+  to next student
+  d.)Current student compares ID with the other student
+  e.)If ID of other student belongs to current student, then both students
+  exchange ID's  
+  f.)Current student leaves party
+  g.)Repeat steps a-f  until no students are left at party

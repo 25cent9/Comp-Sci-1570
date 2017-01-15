@@ -1,0 +1,194 @@
+/*
+  Programmer: Innocent Niyibizi
+  File: functions.h
+  Date: 10/17/16
+  Class: 1570 - H
+  Instuctor: Jarus
+  Description: Header file to hold the function definitions
+*/
+
+#include "functions.h"
+#include "structs.h"
+#include "constants.h"
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+using namespace std;
+
+int randomNumber(const int to, const int from)
+{
+  static bool first = true;
+  if(first)
+    srand(time(NULL));
+  first = false;
+  return rand()%(to-from+1)+from;
+}
+
+void initializeArray(sector array[], int size)
+{
+  for(int i =0; i<size; i++)
+  {
+    sector sec = {randomNumber(HIGHSECTOR,LOWSECTOR),
+                  randomNumber(HIGHWEIGHT,LOWWEIGHT)};
+    array[i]=sec;
+  }
+  return;
+}
+
+void initializeArray(offender array[], int size)
+{
+  for(int i =0; i<size; i++)
+  {
+    offender offen = {offenderNames[i],
+                  randomNumber(HIGHGUILT,LOWGUILT)};
+    array[i]=offen;
+  }
+  return;
+}
+
+void printDatabase(sector database[], int size)
+{
+  for (int i = 0; i < size; i++)
+  {
+    cout<<"Sector: "<<database[i].sectorNum
+        <<" Weight: "<<database[i].lbsWaste<<" lbs"<<endl;
+  }
+  return;
+}
+
+void printDatabase(offender database[], int size)
+{
+  for (int i = 0; i < size; i++)
+  {
+    cout<<database[i].name
+        <<", Guilt = "<<database[i].guilt<<endl;
+  }
+  return;
+}
+
+int findGuiltiestOffenders(sector database[], int size)
+{
+  int sum1 = 0;
+  int sum2 = 0;
+  int fracSum = 0;
+  int j;
+  bool frac = false;
+  //Finding the sum of the piles
+  for(int i = 0; i<size; i++)
+  {
+    sum1+=database[i].lbsWaste;
+  }
+  fracSum = sum1/DIVISOR; //Finding fraction of piles based on divisor
+  //Loop that will add one to j
+  //Loop runs until sum2 is greater than or equal to fracSum
+  //j holds number of least offenders
+  while(!frac)
+  {
+    sum2+=database[j].lbsWaste;
+    j++;
+    if(sum2 >= fracSum)
+      frac=true;
+  }
+  return j;
+}
+
+void printSectors(sector sectors[], int size)
+{
+  //Array for total weight in each sector
+  int sectorLbs[HIGHSECTOR] = {0,0,0,0,0,0,0};
+  for(int i =0; i<size; i++)  //Loop to run thtorugh entire sector array
+  {
+    //Switch for each sector number
+    //When current array element has the same sector number as switch
+    //the total for that sector is increased
+    switch (sectors[i].sectorNum)
+    {
+      case SECTOR_ONE+1:
+        sectorLbs[SECTOR_ONE]+=sectors[i].lbsWaste;
+        break;
+      case SECTOR_TWO+1:
+        sectorLbs[SECTOR_TWO]+=sectors[i].lbsWaste;
+        break;
+      case SECTOR_THREE+1:
+        sectorLbs[SECTOR_THREE]=sectors[i].lbsWaste;
+        break;
+      case SECTOR_FOUR+1:
+        sectorLbs[SECTOR_FOUR]+=sectors[i].lbsWaste;
+        break;
+      case SECTOR_FIVE+1:
+        sectorLbs[SECTOR_FIVE] += sectors[i].lbsWaste;
+        break;
+      case SECTOR_SIX+1:
+          sectorLbs[SECTOR_SIX]+=sectors[i].lbsWaste;
+          break;
+      case SECTOR_SEVEN+1:
+        sectorLbs[SECTOR_SEVEN]+=sectors[i].lbsWaste;
+        break;
+    }
+  }
+  cout<<"-----Sectors----"<<endl;
+  cout<<"Sector #\tTotal lbs"<<endl;
+
+  for(int i =0; i<HIGHSECTOR; i++)
+  {
+    int numPiles = 0; //Integer to hold number of piles in sector
+    //Printing the sector and the total amount of pounds
+    cout<<"Sector "<<i+1<<":\t"<<sectorLbs[i]<<" lbs"<<endl;
+    //Loop to run through the entire loop and print the piles for each sector
+    for(int j = 0; j<size; j++)
+    {
+      if(sectors[j].sectorNum == i+1)
+      {
+        numPiles++; //Adding one to piles
+        cout<<"Pile "<<numPiles<<": "<<sectors[j].lbsWaste<<" lbs"<<endl;
+      }
+    }
+    cout<<"------------------------"<<endl;
+  }
+  return;
+}
+
+void rangeCheck(int& user, const int low, const int high)
+{
+  do
+  {
+    if(user < low)
+    {
+      cout<<"Error! Too low. Please enter a higher number: ";
+      cin>>user;
+    }
+    else if(user > high)
+    {
+      cout<<"Error! Too high. Please enter a lower number: ";
+      cin>>user;
+    }
+  }while((user > high) || (user < low));
+  return;
+}
+
+int findOffender(sector sec[], const int size, const int user)
+{
+  int index = 0;
+  for(int i = 0; i<size; i++)
+  {
+    if(user==sec[i].lbsWaste)
+    {
+      index = i;
+    }
+    else if(user < sec[i].lbsWaste && i!=size && user > sec[i+1].lbsWaste)
+    {
+      index = i;
+    }
+  }
+  return index;
+}
+
+bool operator<(const sector lhs, const sector rhs)
+{
+  return lhs.lbsWaste<rhs.lbsWaste;
+}
+
+bool operator<(const offender lhs, const offender rhs)
+{
+  return lhs.guilt<rhs.guilt;
+}
